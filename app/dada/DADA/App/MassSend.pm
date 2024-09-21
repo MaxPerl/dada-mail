@@ -27,8 +27,7 @@ use Carp qw(carp croak);
 use strict;
 use vars qw($AUTOLOAD);
 
-#my $t = $DADA::Config::DEBUG_TRACE->{DADA_App_MassSend};
-my $t = 1;
+my $t = $DADA::Config::DEBUG_TRACE->{DADA_App_MassSend};
 
 my %allowed = ( test => 0, );
 
