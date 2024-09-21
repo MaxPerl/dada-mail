@@ -17210,8 +17210,6 @@ sub dir {
 	
 	my $q = $self->query;
 	
-	warn "RUNMODE DIR STARTED\n\n\n";
-	
 	my $root = $DADA::Config::SUPPORT_FILES->{dir} . '/' . 'file_uploads';
 	my $dir = $q->param('data-dir') || '';
 	$dir = decontaminate_path($dir);
@@ -17219,12 +17217,11 @@ sub dir {
 	$dir =~ s/^\///;
 	
 	my $path = $dir ? "$root/$dir" : $root;
-	
-	warn "PATH $path\n";
+ 
 	my $dataId = $q->param('data-id');
 	my $dataTarget = $q->param('data-target');
 	
-	my $ret = qq(<p class="row fbrowser_head">\n);
+	my $ret = qq(<p class="fbrowser_head">\n);
 	$ret .= qq(<span class="fbrowser"><i>Select a file ...</i></span>);
     $ret .= qq(<button class="btn_small fclose" data-id="$dataId">Close File Selector</button>);
 	$ret .= qq(</p>);
@@ -17267,9 +17264,6 @@ sub dir {
         $ret .= qq(</p>);
 	}
 	
-	warn "FILES @files\n";
-	
-	warn "RET $ret\n\n";
 	$self->header_add(-type => 'text/html');
 	return $ret;
 }
