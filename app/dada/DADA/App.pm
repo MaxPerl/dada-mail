@@ -17217,7 +17217,7 @@ sub dir {
 	$dir =~ s/^\///;
 	
 	my $path = $dir ? "$root/$dir" : $root;
- 
+	
 	my $dataId = $q->param('data-id');
 	my $dataTarget = $q->param('data-target');
 	
@@ -17227,7 +17227,7 @@ sub dir {
 	$ret .= qq(</p>);
 	if ($dir) {
         my ($parentDir) = $dir =~ m/(.+)\/.*/;
-        $ret .= qq(<p class="row">\n);
+        $ret .= qq(<p>\n);
         $ret .= qq(<span class="fbrowser"><a class="fbrowse" data-id="$dataId" data-dir="$parentDir" data-target="$dataTarget" href="">..</a></span>);
         $ret .= qq(</p>);
 	}
@@ -17250,7 +17250,7 @@ sub dir {
 	foreach my $dir (@dirs) {
         my $value = $dir;
         
-        $ret .= qq(<p class="row">\n);
+        $ret .= qq(<p>\n);
         $ret .= qq(<span class="fbrowser"><a class="fbrowse" data-id="$dataId" data-dir="$dir" data-target="$dataTarget" href="">$dir</a></span>);
         $ret .= qq(<button class="btn_small fselect" data-target="$dataTarget" data-value="$value">Select</button>);
         $ret .= qq(</p>);
@@ -17258,7 +17258,7 @@ sub dir {
     
     foreach my $file (@files) {
         my $value = $file;
-        $ret .= qq(<p class="row">\n);
+        $ret .= qq(<p>\n);
         $ret .= qq(<span class="fbrowser">$file</span>);
         $ret .= qq(<button class="btn_small fselect" data-target="$dataTarget" data-value="$value">Select</button>);
         $ret .= qq(</p>);
